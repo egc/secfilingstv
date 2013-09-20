@@ -1,6 +1,6 @@
 $(function() {
-	var ytapiurl_featuredvideos = 'http://gdata.youtube.com/feeds/api/users/secfilingstv/uploads?alt=json&max-results=1';
-	var ytapiurl_executiveinterviews = 'https://gdata.youtube.com/feeds/api/playlists/PLDVTUrLPjtm4d76yJ4-oDEOqBkBTsFW3Z?alt=json&max-results=3';
+	var ytapiurl_featuredvideos = 'https://gdata.youtube.com/feeds/api/playlists/PLDVTUrLPjtm65as2MNdCjUNRoGQ0Ou50G?alt=json&max-results=1';
+	var ytapiurl_executiveinterviews = 'https://gdata.youtube.com/feeds/api/playlists/PLDVTUrLPjtm4d76yJ4-oDEOqBkBTsFW3Z?alt=json&max-results=2';
 	var htmlStringFeature = '';
 	var htmlStringExecutive = '';
 	
@@ -20,7 +20,7 @@ $(function() {
 	});
 	
 	$.getJSON(ytapiurl_executiveinterviews, function(data) {
-		$.each(data.feed.entry.slice(1), function(i, item) {
+		$.each(data.feed.entry, function(i, item) {
 			var title = item['title']['$t'];
 			var link = item['link'][0]['href'];
 			var thumbnail = item['media$group']['media$thumbnail'][0]['url'];
